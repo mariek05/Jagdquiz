@@ -145,9 +145,18 @@ let questions = [
     },
 ];
 
-function displayQuestion(){
 
-    if(currentQuestionIndex >= questions.length){
+function nextQuestion() {
+    // Erhöhe den Frage-Index
+    currentQuestionIndex++;
+
+    // Zeige die nächste Frage an
+    displayQuestion();
+}
+
+function displayQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        // Wenn alle Fragen beantwortet sind, zeige das Ergebnis an
         document.getElementById('quiz-container').hidden = true;
         document.getElementById('result').hidden = false;
         document.getElementById('score').textContent = score;
@@ -156,14 +165,14 @@ function displayQuestion(){
         return;
     }
 
-
     let question = questions[currentQuestionIndex];
 
+    // Setze die Frage und die Antwortmöglichkeiten
     document.getElementById('question').textContent = question.question;
-    
     let answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
 
+    // Erstelle die Antwort-Buttons
     question.answers.forEach((answer, index) => {
         let answerButton = document.createElement('button');
         answerButton.classList.add("btn", "btn-dark", "me-2");
@@ -171,35 +180,36 @@ function displayQuestion(){
         answerButton.onclick = () => checkAnswer(index);
         answersDiv.appendChild(answerButton);
     });
-     // Verstecke die Rückmeldung und setze die Farbe zurück (damit sie wieder "alert-info" wird)
-     let feedback = document.getElementById('feedback');
-     feedback.hidden = true;
-     feedback.classList.remove('alert-success', 'alert-danger');  // Entfernt alle bisherigen Farbanpassungen
-     feedback.classList.add('alert-info');  // Setzt die Standardfarbe zurück
- 
-     // Verstecke den "Nächste Frage"-Button, bis die Antwort geprüft wurde
-     document.getElementById('next-button').style.display = "none";
- }
- 
- function checkAnswer(userAnswer) {
-     let correctAnswer = questions[currentQuestionIndex].correctAnswer;
- 
-     // Zeige die Rückmeldung an, ob die Antwort richtig oder falsch war
-     let feedback = document.getElementById('feedback');
-     let answerFeedback = document.getElementById('answer-feedback');
- 
-     if (userAnswer === correctAnswer) {
-         score += 1;
-         correctAnswers += 1;
-         answerFeedback.textContent = "richtig";
-         feedback.classList.remove('alert-info');
-         feedback.classList.add('alert-success');  // Setzt grün für richtige Antwort
-     } else {
-         answerFeedback.textContent = "falsch";
-         feedback.classList.remove('alert-info');
-         feedback.classList.add('alert-danger');  // Setzt rot für falsche Antwort
-     }
- 
-     feedback.hidden = false;
-     document.getElementById('next-button').style.display = "inline-block";
- }
+
+    // Verstecke die Rückmeldung und setze die Farbe zurück (damit sie wieder "alert-info" wird)
+    let feedback = document.getElementById('feedback');
+    feedback.hidden = true;
+    feedback.classList.remove('alert-success', 'alert-danger');  // Entfernt alle bisherigen Farbanpassungen
+    feedback.classList.add('alert-info');  // Setzt die Standardfarbe zurück
+
+    // Verstecke den "Nächste Frage"-Button, bis die Antwort geprüft wurde
+    document.getElementById('next-button').style.display = "none";
+}
+
+function checkAnswer(userAnswer) {
+    let correctAnswer = questions[currentQuestionIndex].correctAnswer;
+
+    // Zeige die Rückmeldung an, ob die Antwort richtig oder falsch war
+    let feedback = document.getElementById('feedback');
+    let answerFeedback = document.getElementById('answer-feedback');
+
+    if (userAnswer === correctAnswer) {
+        score += 1;
+        correctAnswers += 1;
+        answerFeedback.textContent = "richtig";
+        feedback.classList.remove('alert-info');
+        feedback.classList.add('alert-success');  // Setzt grün für richtige Antwort
+    } else {
+        answerFeedback.textContent = "falsch";
+        feedback.classList.remove('alert-info');
+        feedback.classList.add('alert-danger');  // Setzt rot für falsche Antwort
+    }
+
+    feedback.hidden = false;
+    document.getElementById('next-button').style.display = "inline-block";  // Zeigt den "Nächste Frage"-Button an
+}
