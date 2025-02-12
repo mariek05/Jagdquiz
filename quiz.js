@@ -1,5 +1,6 @@
 let score = 0;
 let currentQuestionIndex = 0;
+let correctAnswers = 0;  // Variable, um die richtigen Antworten zu zählen
 
 let questions = [
     {
@@ -110,6 +111,8 @@ function displayQuestion(){
         document.getElementById('quiz-container').hidden = true;
         document.getElementById('result').hidden = false;
         document.getElementById('score').textContent = score;
+        document.getElementById('correct-answers').textContent = correctAnswers;
+        document.getElementById('total-questions').textContent = questions.length;
         return;
     }
 
@@ -128,21 +131,38 @@ function displayQuestion(){
         answerButton.onclick = () => checkAnswer(index);
         answersDiv.appendChild(answerButton);
     });
+    // Verstecke die Rückmeldung (falls sie sichtbar war)
+    document.getElementById('feedback').hidden = true;
+    document.getElementById('next-button').style.display = "none";
 }
 
-displayQuestion();
-
-function checkAnswer(userAnswer){
+function checkAnswer(userAnswer) {
     let correctAnswer = questions[currentQuestionIndex].correctAnswer;
 
-    if(userAnswer == correctAnswer){
+    // Zeige die Rückmeldung an, ob die Antwort richtig oder falsch war
+    let feedback = document.getElementById('feedback');
+    let answerFeedback = document.getElementById('answer-feedback');
+
+    if (userAnswer === correctAnswer) {
         score += 1;
+        correctAnswers += 1;
+        answerFeedback.textContent = "richtig";
+        feedback.classList.remove('alert-info');
+        feedback.classList.add('alert-success');
+    } else {
+        answerFeedback.textContent = "falsch";
+        feedback.classList.remove('alert-info');
+        feedback.classList.add('alert-danger');
     }
 
-    nextQuestion();
+    feedback.hidden = false;
+    document.getElementById('next-button').style.display = "inline-block";
 }
 
-function nextQuestion(){
+function nextQuestion() {
     currentQuestionIndex += 1;
     displayQuestion();
 }
+
+// Initiales Setup
+displayQuestion();
