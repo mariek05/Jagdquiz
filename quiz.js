@@ -9,8 +9,18 @@ let questions = [
         correctAnswer: 1
     },
     {
+        question: "Welche Wildart darf auch zur Bestandsstützung überhaupt nicht ausgewildert werden?",
+        answers: ["Rotwild","Damwild","Rehwild", "Schwarzwild"],
+        correctAnswer: 3
+    },
+    {
         question: "Auf welches Wild wird die Blattjagd ausgeübt?",
         answers: ["Rehwild","Schwarzwild","Rotwild", "Damwild", "Sikawild"],
+        correctAnswer: 0
+    },
+    {
+        question: "Zu welcher der nachgenannten Klassen des Rotwilds gehört ein 3-jähriger Achter?",
+        answers: ["Klasse III","Klasse II","Klasse I"],
         correctAnswer: 0
     },
     {
@@ -24,9 +34,24 @@ let questions = [
         correctAnswer: 1
     },
     {
+        question: "Welche der nachgenannten Wildarten kann Trichinenträger sein?",
+        answers: ["Rehwild","Wildkanninchen","Fuchs","Hase"],
+        correctAnswer: 2
+    },
+    {
         question: "Müssen Jäger überhaupt schießen?",
         answers: ["Nein, aber sie finden das lustig","Ja, es gibt sogar einen Abschussplan","Nein, das macht der Förster"],
         correctAnswer: 1
+    },
+    {
+        question: "Welche dieser Baumarten gilt nicht als brauchtumsgerecht?",
+        answers: ["Eiche","Fichte","Ahorn","Tanne"],
+        correctAnswer: 2
+    },
+    {
+        question: "Bei welcher Wildart ist das Stroh´sche Zeichen Hilfsmittel für die Altersschätzung? ",
+        answers: ["Feldhase","Marder","Murmeltier"],
+        correctAnswer: 0
     },
     {
         question: "Welche Aussage über den Erlegerbruch ist richtig?",
@@ -44,9 +69,19 @@ let questions = [
         correctAnswer: 1
     },
     {
+        question: "Wann ist der Hubertustag?",
+        answers: ["Am 28. Oktober","Am 3. November","Am 1. November"],
+        correctAnswer: 1
+    },
+    {
         question: "Was machst du, wenn du ein einsames Tierkind findest?",
         answers: ["du suchst seine Mutter","du lässt es in Ruhe","du streichelst es ein wenig, damit es sich nicht so allein fühlt"],
         correctAnswer: 1
+    },
+    {
+        question: "Welches der genannten Zielfernrohre verfügt über das größte Sehfeld (Bildfeld)?",
+        answers: ["1,1-4 x 24","6 x 42","8 x 56 mit Absehen 1", "8 x 56 mit Absehen 4"],
+        correctAnswer: 0
     },
     {
         question: "Was ist der Unterschied zwischen einen Jäger und einem Förster?",
@@ -72,6 +107,11 @@ let questions = [
         question: "Welche Rehe werden geschossen?",
         answers: ["nur alte und kranke Rehe","Rehe mit großen Hörnern","der Jäger muss sich an einen Abschussplan halten"],
         correctAnswer: 2
+    },
+    {
+        question: "Auf welche Seite wird das Wild auf der Strecke gelegt?",
+        answers: ["Auf die rechte Körperseite","Auf die linke Körperseite"],
+        correctAnswer: 0
     },
     {
         question: "Welcher Lagergruppe ist NC-Pulver zugeordnet?",
