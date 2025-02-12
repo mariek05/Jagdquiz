@@ -206,4 +206,4 @@ function nextQuestion() {
 }
 
 // Beim Laden der Seite erste Frage anzeigen
-displayQuestion();
+displayQuestion(); 
