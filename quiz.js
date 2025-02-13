@@ -59,7 +59,7 @@ let questions = [
         correctAnswer: 4
     },
     {
-        question: "Wie nennt man das Fleisch voon wilden Tieren?",
+        question: "Wie nennt man das Fleisch von Wildtieren?",
         answers: ["Wildfleisch","Hasenpfeffer","Wildbret"],
         correctAnswer: 2
     },
@@ -134,7 +134,7 @@ let questions = [
         correctAnswer: 2
     },
     {
-        question: "Die wichtigste aufgabe des Jägers ist...",
+        question: "Die wichtigste Aufgabe des Jägers ist...",
         answers: ["wanderer beobachten","Natur und Tiere beobachten","alle Tiere abschießen"],
         correctAnswer: 1
     },
